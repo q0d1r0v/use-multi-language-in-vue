@@ -21,7 +21,9 @@ export const useLanguageStore = defineStore('language', {
             } else if (lang === 'ru') {
                 this.language = this.ru
             } else {
-                this.language = {}
+                this.language = {
+                    error_message: "We don't have this language!"
+                }
             }
         }
     }
