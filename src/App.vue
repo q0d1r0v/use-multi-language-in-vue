@@ -4,20 +4,17 @@ import { onMounted, ref } from 'vue';
 import { useLanguageStore } from './store/language'
 
 // store
-const store = useLanguageStore()
+const store: object | any = useLanguageStore()
 
 // data
 const withDefaultLanguage = ref<string>('uz')
-const language = ref<object | any>({})
 
 // methods
 function getLanguage() {
   store.getLanguage(withDefaultLanguage.value)
-  language.value = store.language
 }
 function changeLanguageValue() {
   store.getLanguage(withDefaultLanguage.value)
-  language.value = store.language
 }
 
 // mounted
@@ -41,7 +38,7 @@ onMounted(() => {
     </select>
 
     <div style="margin-top: 10px;">
-      {{ language.header_title }}
+      {{ store?.language?.header_title }}
     </div>
   </div>
 </template>
